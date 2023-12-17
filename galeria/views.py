@@ -1,8 +1,8 @@
 from django.shortcuts import render
-
+from galeria.models import Fotografia
 def index(request):
-    dados = {1:{'nome': 'foto1', 'autor':'leo'},2:{'nome':'foto2', 'autor': 'gabi'}}
-    return render(request, 'galeria/index.html', {'cards': dados})
+    fotografia = Fotografia.objects.all()
+    return render(request, 'galeria/index.html', {'cards': fotografia})
 
 def imagem(request):
     return render(request, 'galeria/imagem.html')
